@@ -76,11 +76,11 @@ class UserController extends Controller {
                 ->get();
 
             if(!$containerFull->isEmpty()){
-                return $this->returnData($containerFull, "Some container were full of balls. Ready to play :)");
+                return $this->returnStatus(false, "Some container were full of balls. Ready to play :)");
             }
 
             // pick random container
-            $container = Container::where('user_id', $user->id)->inRandomOrder()->first();
+            $container = Container::where('user_id', $user->id)->inRandomOrder()->firstOrFail();
 
             // send ball to container
             $containerBall = new ContainerBall(['qty'=>1]);
