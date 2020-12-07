@@ -14,4 +14,6 @@ $router->group(['middleware'=>'auth:api'], function () use ($router) {
         $router->post("/", "ContainerController@store");
         $router->patch("/{id}", "ContainerController@update");
     });
+
+    $router->post('/player/put-ball', 'UserController@putBall');
 });

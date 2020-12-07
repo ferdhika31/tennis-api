@@ -11,6 +11,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 use App\Traits\SearchableTrait;
+use DB;
 
 class Container extends Model
 {
@@ -23,6 +24,10 @@ class Container extends Model
      */
     protected $fillable = [
         'name', 'max_balls',
+    ];
+
+    protected $appends = [
+        'remain_qty'
     ];
 
     /**
@@ -40,10 +45,38 @@ class Container extends Model
         return $data;
     }
 
+    public function getRemainQtyAttribute(){
+        $maxBalls = $this->max_balls;
+        // sum ball in container
+        $qtyBalls = ContainerBall::where('container_id', $this->id)->sum('qty');
+
+        return !empty($this->ball_in_container) ? $maxBalls - $this->ball_in_container : $maxBalls - $qtyBalls;
+    }
+
     /**
      * Get the user of the container.
      */
     public function user(){
         return $this->belongsTo('App\Models\User');
+    }
+
+    /**
+     * Get the balls for container.
+     */
+    public function balls()
+    {
+        return $this->hasMany('App\Models\ContainerBall');
+    }
+
+    public static function getFullContainer(){
+        $model = new self();
+
+        $sumBalls = "(SELECT SUM(qty) from container_balls where container_balls.container_id = containers.id)";
+
+        $model = $model->select(DB::raw("name, max_balls, {$sumBalls} as ball_in_container"));
+
+        $model = $model->whereRaw("{$sumBalls} >= containers.max_balls");
+
+        return $model;
     }
 }
