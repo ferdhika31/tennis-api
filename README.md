@@ -39,7 +39,7 @@ composer install
 
 ```bash
 # Create new tables for Passport
-php artisan migrate
+php artisan migrate --seed
 
 # Install encryption keys and other necessary stuff for Passport
 php artisan passport:install
