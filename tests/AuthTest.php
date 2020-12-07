@@ -17,8 +17,7 @@ class AuthTest extends TestCase
             "email" => $faker->unique()->safeEmail,
             "password" => Hash::make($faker->password),
         ]);
-
-        $this->assertEquals(200, $response->status());
+        $response->assertStatus(200);
     }
 
     public function testLogin()
@@ -29,13 +28,13 @@ class AuthTest extends TestCase
 
         $response = $this->call('POST', '/v1/oauth/token', [
             "grant_type" => "password",
-            "client_id" => "2",
-            "client_secret" => "P1vyLEdOp43P9IhssnhWEYrqRCLa7FwTTxf3to8O",
+            "client_id" => $_SERVER['CLIENT_ID'],
+            "client_secret" => $_SERVER['CLIENT_SECRET'],
             "username" => $user->username,
             "password" => $pass
         ]);
 
-        $this->assertEquals(200, $response->getStatusCode());
+        $response->assertStatus(200);
     }
 
     public function testProfile()
@@ -44,6 +43,6 @@ class AuthTest extends TestCase
         $this->actingAs($user);
 
         $response = $this->call('GET', '/api/v1/me');
-        $this->assertEquals(200, $response->status());
+        $response->assertStatus(200);
     }
 }
