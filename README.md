@@ -4,11 +4,17 @@ Backend Engineer Assesment. Problem 1.
 
 ## Business Requirements
 
-[*] A Player can have several tennis ball Containers.
-[*] Each Container has a specified capacity.
-[*] A Container is marked as ready when it is fully loaded with tennis balls.
-[*] The Player can put one tennis ball into a random Container. He can do this repeatedly until he is ready to play.
-[*] When one of the Player's Containers is ready, the Player is ready to play tennis.
+- [x] A Player can have several tennis ball Containers.
+- [x] Each Container has a specified capacity.
+- [x] A Container is marked as ready when it is fully loaded with tennis balls.
+- [x] The Player can put one tennis ball into a random Container. He can do this repeatedly until he is ready to play.
+- [x] When one of the Player's Containers is ready, the Player is ready to play tennis.
+
+## Postman Docummentation API
+
+Check [Postman Docummentation](https://documenter.getpostman.com/view/12023164/TVmQfGUX) 
+BaseURL [tennis.dika.web.id](http://tennis.dika.web.id) 
+
 
 ## Install
 
@@ -63,12 +69,6 @@ php -S localhost:8000 -t public
 vendor\bin\phpunit tests
 vendor\bin\phpunit tests\ContainerTest.php
 ```
-
-### Postman Docummentation API
-
-Check [Postman Docummentation](https://documenter.getpostman.com/view/12023164/TVmQfGUX) 
-BaseURL [tennis.dika.web.id](http://tennis.dika.web.id) 
-
 
 ## Contributing
 
