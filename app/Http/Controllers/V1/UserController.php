@@ -95,6 +95,18 @@ class UserController extends Controller {
         }
     }
 
+    public function readyToPlay(){
+        $user = Auth::user();
+
+        $containerFull = !Container::getFullContainer()
+            ->where('user_id', $user->id)
+            ->get()->isEmpty();
+
+        $message = $containerFull ? "Ready to play!" : "Not ready yet!";
+
+        return $this->returnStatus($containerFull, $message, 200);
+    }
+
     /**
      * @param Request $request
      * @return Response|ResponseFactory

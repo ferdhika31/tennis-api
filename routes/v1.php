@@ -16,4 +16,5 @@ $router->group(['middleware'=>'auth:api'], function () use ($router) {
     });
 
     $router->post('/player/put-ball', 'UserController@putBall');
+    $router->get('/player/ready-to-play', 'UserController@readyToPlay');
 });
