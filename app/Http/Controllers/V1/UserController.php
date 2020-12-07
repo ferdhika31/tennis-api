@@ -80,7 +80,12 @@ class UserController extends Controller {
             }
 
             // pick random container
-            $container = Container::where('user_id', $user->id)->inRandomOrder()->firstOrFail();
+            $container = Container::where('user_id', $user->id)->inRandomOrder()->first();
+
+            // if player dont have container
+            if(empty($container)){
+                return $this->returnStatus(false, "Container not found.", 404);
+            }
 
             // send ball to container
             $containerBall = new ContainerBall(['qty'=>1]);
