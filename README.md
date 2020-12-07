@@ -16,12 +16,12 @@ Documentation for the framework can be found on the [Lumen website](https://lume
 ### Clone Project
 ```bash
 # Clone this repo
-git clone https://github.com/dikawebid/lumen-api.git
+git clone https://github.com/ferdhika31/tennis-api.git
 ```
 
 ### Change Directory to Project
 ```bash
-cd lumen-api
+cd tennis-api
 ```
 
 ### Copy .env.example file
@@ -45,14 +45,26 @@ php artisan migrate
 php artisan passport:install
 ```
 
+### Fill APP_KEY
+
+Fill **APP_KEY** in **.env** files.
+
 ### Start server
 ```bash
 php -S localhost:8000 -t public
 ```
 
-### Postman Collection
+### Running test suite:
 
-Check [Postman Collection](https://www.getpostman.com/collections/8e55f4caf4fd23be7241) 
+```bash
+vendor\bin\phpunit tests
+vendor\bin\phpunit tests\ContainerTest.php
+```
+
+### Postman Docummentation API
+
+Check [Postman](https://documenter.getpostman.com/view/12023164/TVmQfGUX) 
+
 
 ## Contributing
 
