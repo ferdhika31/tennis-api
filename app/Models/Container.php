@@ -9,13 +9,14 @@
 
 namespace App\Models;
 
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use App\Traits\SearchableTrait;
 use DB;
 
 class Container extends Model
 {
-    use SearchableTrait;
+    use SearchableTrait, HasFactory;
 
     /**
      * The attributes that are mass assignable.
