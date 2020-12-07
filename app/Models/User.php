@@ -36,7 +36,7 @@ class User extends Model implements AuthenticatableContract, AuthorizableContrac
         $user = $this->where('username', $username)->first();
         if (empty($user)) {
             abort(400, "USER_BELUM_TERDAFTAR");
-        } 
+        }
 
         return $user;
     }
@@ -47,5 +47,13 @@ class User extends Model implements AuthenticatableContract, AuthorizableContrac
         }
 
         return app('hash')->check($password, $this->getAuthPassword());
+    }
+
+    /**
+     * Get the containers for user player.
+     */
+    public function containers()
+    {
+        return $this->hasMany('App\Models\Container');
     }
 }
