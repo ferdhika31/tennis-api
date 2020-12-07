@@ -1,15 +1,14 @@
-# Lumen PHP Framework
+# Tennis Player API
 
-[![Build Status](https://travis-ci.org/laravel/lumen-framework.svg)](https://travis-ci.org/laravel/lumen-framework)
-[![Total Downloads](https://img.shields.io/packagist/dt/laravel/framework)](https://packagist.org/packages/laravel/lumen-framework)
-[![Latest Stable Version](https://img.shields.io/packagist/v/laravel/framework)](https://packagist.org/packages/laravel/lumen-framework)
-[![License](https://img.shields.io/packagist/l/laravel/framework)](https://packagist.org/packages/laravel/lumen-framework)
+Backend Engineer Assesment. Problem 1.
 
-Laravel Lumen is a stunningly fast PHP micro-framework for building web applications with expressive, elegant syntax. We believe development must be an enjoyable, creative experience to be truly fulfilling. Lumen attempts to take the pain out of development by easing common tasks used in the majority of web projects, such as routing, database abstraction, queueing, and caching.
+## Business Requirements
 
-## Official Documentation
-
-Documentation for the framework can be found on the [Lumen website](https://lumen.laravel.com/docs).
+[*] A Player can have several tennis ball Containers.
+[*] Each Container has a specified capacity.
+[*] A Container is marked as ready when it is fully loaded with tennis balls.
+[*] The Player can put one tennis ball into a random Container. He can do this repeatedly until he is ready to play.
+[*] When one of the Player's Containers is ready, the Player is ready to play tennis.
 
 ## Install
 
@@ -29,6 +28,14 @@ cd tennis-api
 cp .env.example .env
 ```
 
+### Fill .env Files
+
+- Fill **APP_KEY**
+- Fill **DB_HOST**
+- Fill **DB_DATABASE**
+- Fill **DB_USERNAME**
+- Fill **DB_PASSWORD**
+
 ### Install dependency
 
 ```bash
@@ -45,10 +52,6 @@ php artisan migrate --seed
 php artisan passport:install
 ```
 
-### Fill APP_KEY
-
-Fill **APP_KEY** in **.env** files.
-
 ### Start server
 ```bash
 php -S localhost:8000 -t public
@@ -63,7 +66,8 @@ vendor\bin\phpunit tests\ContainerTest.php
 
 ### Postman Docummentation API
 
-Check [Postman](https://documenter.getpostman.com/view/12023164/TVmQfGUX) 
+Check [Postman Docummentation](https://documenter.getpostman.com/view/12023164/TVmQfGUX) 
+BaseURL [tennis.dika.web.id](http://tennis.dika.web.id) 
 
 
 ## Contributing
