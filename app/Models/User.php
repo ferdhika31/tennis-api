@@ -32,6 +32,10 @@ class User extends Model implements AuthenticatableContract, AuthorizableContrac
         'password',
     ];
 
+    /**
+     * @param $username
+     * @return mixed
+     */
     public function findForPassport($username) {
         $user = $this->where('username', $username)->first();
         if (empty($user)) {
@@ -41,6 +45,10 @@ class User extends Model implements AuthenticatableContract, AuthorizableContrac
         return $user;
     }
 
+    /**
+     * @param $password
+     * @return mixed
+     */
     public function validateForPassportPasswordGrant($password) {
         if (empty($this->email_verified_at)) {
             abort(400, "USER_BELUM_VERIFIKASI");

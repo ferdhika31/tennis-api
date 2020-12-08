@@ -10,9 +10,9 @@ Backend Engineer Assesment. Problem 1.
 - [x] The Player can put one tennis ball into a random Container. He can do this repeatedly until he is ready to play.
 - [x] When one of the Player's Containers is ready, the Player is ready to play tennis.
 
-## Postman Docummentation API
+## Postman Documentation API
 
-Check [Postman Docummentation](https://documenter.getpostman.com/view/12023164/TVmQfGUX) 
+Check [Postman Documentation](https://documenter.getpostman.com/view/12023164/TVmQfGUX) 
 BaseURL [tennis.dika.web.id](http://tennis.dika.web.id) 
 
 

@@ -27,6 +27,9 @@ class Container extends Model
         'name', 'max_balls',
     ];
 
+    /**
+     * @var string[]
+     */
     protected $appends = [
         'remain_qty'
     ];
@@ -46,6 +49,9 @@ class Container extends Model
         return $data;
     }
 
+    /**
+     * @return mixed
+     */
     public function getRemainQtyAttribute(){
         $maxBalls = $this->max_balls;
         // sum ball in container
@@ -69,6 +75,9 @@ class Container extends Model
         return $this->hasMany('App\Models\ContainerBall');
     }
 
+    /**
+     * @return mixed
+     */
     public static function getFullContainer(){
         $model = new self();
 

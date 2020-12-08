@@ -100,6 +100,9 @@ class UserController extends Controller {
         }
     }
 
+    /**
+     * @return Response|ResponseFactory
+     */
     public function readyToPlay(){
         $user = Auth::user();
 
