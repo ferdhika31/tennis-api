@@ -1,6 +1,6 @@
 # Tennis Player API
 
-Backend Engineer Assesment. Problem 1.
+Backend Engineer Assessment. Problem 1.
 
 ## Business Requirements
 
@@ -13,61 +13,53 @@ Backend Engineer Assesment. Problem 1.
 ## Postman Documentation API
 
 Check [Postman Documentation](https://documenter.getpostman.com/view/12023164/TVmQfGUX) 
+
 BaseURL [tennis.dika.web.id](http://tennis.dika.web.id) 
 
+## Setup With Docker
 
-## Install
+### Setup
 
-### Clone Project
-```bash
-# Clone this repo
-git clone https://github.com/ferdhika31/tennis-api.git
-```
+- `git clone https://github.com/ferdhika31/tennis-api.git`
+- `cd tennis-api`
+- `docker-compose build app`
+- `docker-compose up -d`
+- `docker-compose exec app composer install`
+- `cp .env.example .env` or `copy .env.example .env`
+- `docker-compose exec app php artisan migrate --seed`
+- `docker-compose exec app php artisan passport:install`
 
-### Change Directory to Project
-```bash
-cd tennis-api
-```
+Now that all containers are up, access from browser `localhost:8000`
 
-### Copy .env.example file
-```bash
-cp .env.example .env
-```
-
-### Fill .env Files
-
-- Fill **APP_KEY**
-- Fill **DB_HOST**
-- Fill **DB_DATABASE**
-- Fill **DB_USERNAME**
-- Fill **DB_PASSWORD**
-
-### Install dependency
+### Running test suite race condition:
 
 ```bash
-composer install
+docker-compose exec app vendor/bin/phpunit tests
+docker-compose exec app vendor/bin/phpunit tests/ContainerTest.php
 ```
 
-### Migrate and install Laravel Passport
+### Stop 
+- `docker-compose stop` to stop app
 
-```bash
-# Create new tables for Passport
-php artisan migrate --seed
 
-# Install encryption keys and other necessary stuff for Passport
-php artisan passport:install
-```
+## Setup Without Docker
 
-### Start server
-```bash
-php -S localhost:8000 -t public
-```
+### Setup
+
+- `git clone https://github.com/ferdhika31/tennis-api.git`
+- `cd tennis-api`
+- `composer install`
+- `cp .env.example .env` or `copy .env.example .env`
+- Edit database configuration
+- `php artisan migrate --seed`
+- `php artisan passport:install`
+- `php -S localhost:8000 -t public`
 
 ### Running test suite:
 
 ```bash
-vendor\bin\phpunit tests
-vendor\bin\phpunit tests\ContainerTest.php
+vendor/bin/phpunit tests
+vendor/bin/phpunit tests/ContainerTest.php
 ```
 
 ## Contributing
