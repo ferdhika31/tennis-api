@@ -22,10 +22,10 @@ BaseURL [tennis.dika.web.id](http://tennis.dika.web.id)
 
 - `git clone https://github.com/ferdhika31/tennis-api.git`
 - `cd tennis-api`
+- `cp .env.example .env` or `copy .env.example .env`
 - `docker-compose build app`
 - `docker-compose up -d`
 - `docker-compose exec app composer install`
-- `cp .env.example .env` or `copy .env.example .env`
 - `docker-compose exec app php artisan migrate --seed`
 - `docker-compose exec app php artisan passport:install`
 
